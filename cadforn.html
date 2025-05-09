@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Fornecedor</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #e0e0e0;
+      color: #212529;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 800px;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #343a40;
+      padding: 10px;
+      background-color: #dee2e6;
+      border-radius: 6px;
+
+      font-size: 24px;
+    }
+
+    .section-title {
+      background-color: #dee2e6;
+      color: #343a40;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .form-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .input-group {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #495057;
+    }
+
+    .input-group input,
+    .input-group select {
+      padding: 10px 12px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 15px;
+      color: #495057;
+      background-color: #ffffff;
+      outline: none;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      outline: 2px solid #6666ff;
+      background-color: #f0f8ff;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-container button {
+      padding: 12px 32px;
+      font-size: 16px;
+      background-color: #6c757d;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-container button:hover {
+      background-color: #5a6268;
+    }
+
+    .back-button {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a href="fornecedores.html">
+    <button class="back-button"><span class="material-icons">arrow_back</span></button>
+    </a>
+    <div class="form-box">
+      <h2>CADASTRO DE FORNECEDOR</h2>
+
+      <div class="section-title">DADOS DA EMPRESA</div>
+
+      <form>
+        <div class="row">
+          <div class="input-group">
+            <label for="empresa">NOME DA EMPRESA</label>
+            <input type="text" id="empresa" name="empresa">
+          </div>
+          <div class="input-group">
+            <label for="cnpj">CNPJ</label>
+            <input type="text" id="cnpj" name="cnpj">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label for="fundacao">DATA DE FUNDAÇÃO</label>
+            <input type="date" id="fundacao" name="fundacao">
+          </div>
+          <div class="input-group">
+            <label for="produto">PRODUTO(S) FORNECIDO</label>
+            <input type="TEXT" id="PRODUTO(S)" name="PRODUTO(S)">
+
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group" style="flex: 1 1 100%">
+            <label for="endereco">ENDEREÇO</label>
+            <input type="text" id="endereco" name="endereco" placeholder="Rua ..., Nº, Bairro, Cidade">
+          </div>
+        </div>
+
+        <div class="section-title">FORMAS DE CONTATO</div>
+
+        <div class="row">
+          <div class="input-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email">
+          </div>
+          <div class="input-group">
+            <label for="telefone">TELEFONE</label>
+            <input type="text" id="telefone" name="telefone">
+          </div>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit">CADASTRAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Funcionário</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #e0e0e0;
+      color: #212529;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      background-color: #dee2e6;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .header h1 {
+      margin: 0 auto;
+      font-size: 24px;
+      color: #343a40;
+    }
+
+    .back-button {
+      position: absolute;
+      left: -285px;
+      top: -40px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .section-title {
+        text-align: center;
+      font-weight: bold;
+      padding: 10px;
+      margin-top: -10px;
+      background-color: #dee2e6;
+      border-radius: 6px;
+      color: #495057;
+
+
+
+
+    }
+    FORM INPUT{
+        margin-top:20px;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-weight: bold;
+      padding: 8px;
+      margin-top: 7px;
+      background-color: #dee2e6;
+      border-radius: 6px;
+      color: #495057;
+    }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-group input,
+    .form-group select,
+    .full-width {
+      flex: 1;
+      min-width: 250px;
+      padding: 10px 12px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 15px;
+      color: #495057;
+      background-color: #ffffff;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .full-width:focus {
+      outline: 2px solid #6666ff;
+      background-color: #f0f8ff;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .submit-button {
+      padding: 12px 32px;
+      font-size: 16px;
+      background-color: #6c757d;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .submit-button:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+        <a href="funcionarios.html">
+        <button class="back-button"><span class="material-icons">arrow_back</span></button>
+        </a>
+        <h1>CADASTRO DE FUNCIONÁRIO</h1>
+    </div>
+
+    <div class="section-title">DADOS PESSOAIS</div>
+
+    <form class="form-box">
+      <div class="form-group">
+        <input type="text" placeholder="NOME COMPLETO">
+        <input type="text" placeholder="RG">
+        
+        <select>
+            <option value="" disabled selected>SEXO</option>
+            <option value="MASCULINO">MASCULINO</option>
+            <option value="FEMININO">FEMININO</option>
+          </select>
+          
+      <div class="form-group">
+        <input type="date" placeholder="DATA DE NASCIMENTO">
+        <input type="text" placeholder="CPF">
+        <select id="estado-civil" name="estado-civil" required>
+          <option value="Solteiro">Solteiro(a)</option>
+          <option value="Casado">Casado(a)</option>
+          <option value="Viúvo">Viúvo(a)</option>
+        </select>
+        <input type="password" placeholder="SENHA">
+      </div>
+
+      <input type="text" class="full-width" placeholder="RUA...Nº...BAIRRO, CIDADE">
+
+      <div class="section-subtitle">FORMAS DE CONTATO</div>
+
+      <div class="form-group">
+        <input type="email" placeholder="EMAIL">
+        <input type="text" placeholder="TELEFONE">
+      </div>
+
+      <div class="form-group center">
+        <select>
+          <option>NÍVEL DO USUÁRIO</option>
+        </select>
+      </div>
+
+      <div class="form-group center">
+        <button type="submit" class="submit-button">CADASTRAR</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
