@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Produtos</title>
+  <style>
+    .hidden { display: none !important; }
+    th.action-header, td.action-cell { transition: all 0.2s ease; }
+    .disabled-row { background-color: #f0f0f0; color: #aaa; }
+    .disabled-row input { background: #e0e0e0; color: #aaa; border: none; }
+  </style>
+  <link rel="stylesheet" href="css/site3.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <a href="inicial1.html">
+    <div class="topo">
+      <span class="material-icons icon">arrow_back</span>
+    </a>
+      <div class="search-container">
+        <span class="material-icons">search</span>
+        <input type="text" id="search-input" placeholder="Pesquisar...">
+        <button id="search-btn" type="button">Pesquisar</button>
+      </div>
+      <h1>FUNCIONÁRIOS</h1>
+      <span class="material-icons icon edit-toggle" title="Mostrar/Ocultar Ações">edit</span>
+    </div>
+    <div class="faixa-superior"></div>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>ID </th>
+          <th>Nome do funcionário</th>
+          <th>cargo</th>
+          <th>Data de nascimento</th>
+          <th>Data de admissão</th>
+          <th class="action-header hidden">Ações</th>
+        </tr>
+      </thead>
+      <tbody id="supplier-table-body">
+        <!-- As linhas da tabela serão inseridas aqui por JS ou manualmente -->
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.edit-toggle');
+      const actionHeader = document.querySelector('th.action-header');
+      const tableBody = document.getElementById('supplier-table-body');
+
+      const funcionarios = [
+        { id: 94787, nome: 'Peter Parker', cargo: 'Atendente', nascimento: '01/06/1996', admissao: '15/06/2023' },
+        { id: 86767, nome: 'Matue', cargo: 'Atendente', nascimento: '11/10/1993', admissao: '19/01/2024' },
+        { id: 67678, nome: 'Sergio Luiz', cargo: 'Padeiro', nascimento: '13/01/1972', admissao: '20/06/2023' },
+        { id: 93893, nome: 'Mbappe', cargo: 'Padeiro', nascimento: '13/12/1993', admissao: '24/08/2023' },
+        { id: 65656, nome: 'Tony Stark', cargo: 'Caixa', nascimento: '04/04/1965', admissao: '30/06/2023' },
+        { id: 25676, nome: 'Tim Maia', cargo: 'Caixa', nascimento: '23/09/1943', admissao: '10/03/2025' },
+        { id: 45678, nome: 'Kerry King', cargo: 'Gerente', nascimento: '03/06/1964', admissao: '03/06/2023' }
+      ];
+
+      function adicionarLinha(func) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${func.id}</td>
+          <td>${func.nome}</td>
+          <td>${func.cargo}</td>
+          <td>${func.nascimento}</td>
+          <td>${func.admissao}</td>
+          <td class="action-cell hidden">
+            <div class="action-icons">
+              <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+              <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+              <a href="cadfunc.html">
+                <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+              </a>
+            </div>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      }
+
+      funcionarios.forEach(adicionarLinha);
+
+      toggleBtn.addEventListener('click', () => {
+        actionHeader.classList.toggle('hidden');
+        document.querySelectorAll('td.action-cell').forEach(td => td.classList.toggle('hidden'));
+      });
+
+      document.getElementById('search-btn').addEventListener('click', () => {
+        const term = document.getElementById('search-input').value.toLowerCase();
+        Array.from(tableBody.rows).forEach(row => {
+          const match = Array.from(row.cells).slice(0, 5).some(td => td.textContent.toLowerCase().includes(term));
+          row.style.display = match ? '' : 'none';
+          const cell = row.querySelector('td.action-cell');
+          if (cell) cell.classList.toggle('hidden', !match || actionHeader.classList.contains('hidden'));
+        });
+      });
+
+      tableBody.addEventListener('click', (e) => {
+        if (e.target.closest('.edit-btn')) {
+          const btn = e.target.closest('.edit-btn');
+          const row = btn.closest('tr');
+          const icon = btn.querySelector('.material-icons');
+          const editing = row.classList.toggle('editing');
+          icon.textContent = editing ? 'save' : 'edit';
+          for (let i = 0; i < 5; i++) {
+            const cell = row.cells[i];
+            if (editing) {
+              const inp = document.createElement('input');
+              inp.type = 'text';
+              inp.value = cell.textContent;
+              cell.textContent = '';
+              cell.appendChild(inp);
+            } else {
+              const inp = cell.querySelector('input');
+              if (inp) cell.textContent = inp.value;
+            }
+          }
+        }
+
+        if (e.target.closest('.delete-btn')) {
+          const btn = e.target.closest('.delete-btn');
+          const row = btn.closest('tr');
+          const deleted = row.classList.toggle('disabled-row');
+          const icon = btn.querySelector('.material-icons');
+          icon.textContent = deleted ? 'undo' : 'delete';
+          row.querySelectorAll('input').forEach(input => input.disabled = deleted);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

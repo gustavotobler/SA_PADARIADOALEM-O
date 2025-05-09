@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Produtos</title>
+  <style>
+    .hidden { display: none !important; }
+    th.action-header, td.action-cell { transition: all 0.2s ease; }
+    .disabled-row { background-color: #f0f0f0; color: #aaa; }
+    .disabled-row input { background: #e0e0e0; color: #aaa; border: none; }
+  </style>
+  <link rel="stylesheet" href="css/site3.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <a href="inicial1.html">
+        
+    <div class="topo">
+      <span class="material-icons icon">arrow_back</span>
+    </a>
+      <div class="search-container">
+        <span class="material-icons">search</span>
+        <input type="text" id="search-input" placeholder="Pesquisar...">
+        <button id="search-btn" type="button">Pesquisar</button>
+      </div>
+      <h1>PRODUTOS</h1>
+      <span class="material-icons icon edit-toggle" title="Mostrar/Ocultar Ações">edit</span>
+    </div>
+    <div class="faixa-superior"></div>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>ID FORNECEDOR</th>
+          <th>ID</th>
+          <th>Nome do produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th class="action-header hidden">Ações</th>
+        </tr>
+        <tbody id="supplier-table-body">
+            <tr>
+              <td></td><td>P1</td><td>Pão Francês</td><td>R$ 0,50</td><td>100/Por dia</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td><td>P2</td><td>Pão integral</td><td>R$ 6,00</td><td>62</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>FR02</td><td>P3</td><td>Bolo de Chocolate</td><td>R$ 12,00</td><td>15</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>FR02</td><td>P4</td><td>Bolo de morango</td><td>R$ 14,00</td><td>35</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>FR02</td><td>P5</td><td>Bolo de abacaxi</td><td>R$ 15,00</td><td>27</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td><td>P6</td><td>Cuca de banana</td><td>R$ 10,00</td><td>40</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td><td>P8</td><td>Rosca doce</td><td>R$ 5,00</td><td>53</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td><td>P9</td><td>Orelha de gato</td><td>R$ 19,00/KG</td><td>20</td>
+              <td class="action-cell hidden">
+                <div class="action-icons">
+                  <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>
+                  <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>
+                  <button class="icon-btn add-btn"><span class="material-icons">add</span></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          
+      </thead>
+      <tbody id="supplier-table-body">
+        <!-- Conteúdo da tabela -->
+        <!-- Mantido como está -->
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.edit-toggle');
+      const actionHeader = document.querySelector('th.action-header');
+      const tableBody = document.getElementById('supplier-table-body');
+
+      const getActionCells = () => document.querySelectorAll('td.action-cell');
+
+      toggleBtn.addEventListener('click', () => {
+        actionHeader.classList.toggle('hidden');
+        getActionCells().forEach(td => td.classList.toggle('hidden'));
+      });
+
+      document.getElementById('search-btn').addEventListener('click', () => {
+        const term = document.getElementById('search-input').value.toLowerCase();
+        Array.from(tableBody.rows).forEach(row => {
+          const match = Array.from(row.cells).slice(0, 5).some(td => td.textContent.toLowerCase().includes(term));
+          row.style.display = match ? '' : 'none';
+          const cell = row.querySelector('td.action-cell');
+          if (cell) cell.classList.toggle('hidden', !match || actionHeader.classList.contains('hidden'));
+        });
+      });
+
+      function bindActions() {
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+          btn.onclick = () => {
+            const row = btn.closest('tr');
+            const icon = btn.querySelector('.material-icons');
+            const editing = row.classList.toggle('editing');
+            icon.textContent = editing ? 'save' : 'edit';
+            const numCols = row.cells.length - 1;
+            for (let i = 0; i < numCols; i++) {
+              const cell = row.cells[i];
+              if (editing) {
+                const inp = document.createElement('input');
+                inp.type = 'text';
+                inp.value = cell.textContent;
+                cell.textContent = '';
+                cell.appendChild(inp);
+              } else {
+                const inp = cell.querySelector('input');
+                if (inp) cell.textContent = inp.value;
+              }
+            }
+          };
+        });
+
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+          btn.onclick = () => {
+            const row = btn.closest('tr');
+            const deleted = row.classList.toggle('disabled-row');
+            const icon = btn.querySelector('.material-icons');
+            icon.textContent = deleted ? 'undo' : 'delete';
+            row.querySelectorAll('input').forEach(input => input.disabled = deleted);
+            row.style.pointerEvents = deleted ? 'none' : '';
+            row.style.pointerEvents = 'auto'; // ensure action buttons still work
+            const cells = row.querySelectorAll('td');
+            if (deleted) {
+              cells.forEach(cell => cell.classList.add('disabled-cell'));
+            } else {
+              cells.forEach(cell => cell.classList.remove('disabled-cell'));
+            }
+          };
+        });
+
+        document.querySelectorAll('.add-btn').forEach(btn => {
+          btn.onclick = () => {
+            const headers = Array.from(document.querySelectorAll('thead th'))
+              .filter(th => !th.classList.contains('action-header'))
+              .map(th => th.textContent.trim());
+            const values = headers.map(h => prompt(`Valor para "${h}":`));
+            if (values.includes(null)) return;
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = values.map(v => `<td>${v}</td>`).join('') +
+              `<td class="action-cell ${actionHeader.classList.contains('hidden') ? 'hidden' : ''}">` +
+              `  <div class="action-icons">` +
+              `    <button class="icon-btn edit-btn"><span class="material-icons">edit</span></button>` +
+              `    <button class="icon-btn delete-btn"><span class="material-icons">delete</span></button>` +
+              `    <button class="icon-btn add-btn"><span class="material-icons">add</span></button>` +
+              `  </div>` +
+              `</td>`;
+            tableBody.appendChild(newRow);
+            bindActions();
+          };
+        });
+      }
+      bindActions();
+    });
+  </script>
+
+</body>
+</html>
