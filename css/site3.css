@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #e0e0e0; /* Fundo cinza neutro */
+  color: #212529;
+  padding: 30px;
+}
+
+/* Cabeçalho superior */
+.topo {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-bottom: 2px solid #dee2e6;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.topo .icon {
+  font-size: 32px;
+  color: #495057;
+  cursor: pointer;
+}
+.topo h1 {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 24px;
+  color: #343a40;
+  font-weight: 600;
+}
+
+/* Barra de pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+.search-container .material-icons {
+  color: #6c757d;
+  font-size: 22px;
+}
+.search-container input {
+  border: none;
+  background: transparent;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #495057;
+  outline: none;
+}
+.search-container button {
+  margin-left: 12px;
+  background-color: #6c757d;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+.search-container button:hover {
+  background-color: #5a6268;
+}
+
+/* Conteúdo principal e tabela */
+main {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+table {
+  width: 100%;
+  max-width: 1000px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #ffffff;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+thead th {
+  background-color: #343a40;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 16px;
+  font-size: 15px;
+  border-bottom: 2px solid #dee2e6;
+}
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+tbody tr:hover {
+  background-color: #e9ecef;
+}
+td {
+  padding: 16px 12px;
+  font-size: 15px;
+  color: #495057;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+  height: 60px;
+}
+
+/* Ocultar coluna de ações */
+th.action-header.hidden,
+td.action-cell.hidden {
+  display: none !important;
+}
+
+/* Ícones de ação */
+.action-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #6c757d;
+  transition: color 0.2s, transform 0.1s;
+}
+.icon-btn:hover {
+  color: #343a40;
+  transform: scale(1.2);
+}
+
+/* Linha desativada */
+.disabled-row {
+  background-color: #e9ecef;
+  color: #adb5bd;
+}
+.disabled-row input {
+  background-color: #dee2e6;
+  color: #adb5bd;
+  border: none;
+}
+
+/* Inputs inline */
+td input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #495057;
+  outline: none;
+}
+
+/* Toggle de edição */
+.edit-toggle {
+  font-size: 26px;
+  color: #6c757d;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.edit-toggle:hover {
+  color: #343a40;
+}
+.material-icons {
+    color: #000000 !important;
+  }
+  
